@@ -32,7 +32,6 @@ jobs:
           node-version: "22"
       - run: npm ci
       - run: npm test
-      # The committed vectors must be exactly what the committed code produces.
 
   publish:
     needs: test
