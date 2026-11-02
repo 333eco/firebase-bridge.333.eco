@@ -1,7 +1,9 @@
 # @333eco/firebase-bridge
 
-Accept **Log in with HeartBank®** in a Firebase app. Your app sends the person to `login.333.eco` (OpenID Connect),
-gets an ID token back, and gives it to a function you run. The bridge verifies the token and mints a custom token for
+Accept **Log in with HeartBank®** in a Firebase app. **Only Firebase apps need this package.** Any other app uses an
+OpenID library directly: [developer docs and tested samples](https://login.333.eco/developers/docs).
+
+Your app sends the person to `login.333.eco` (OpenID Connect), gets an ID token back, and gives it to a function you run. The bridge verifies the token and mints a custom token for
 **your** Firebase project, with **your** service account. HeartBank never holds your keys.
 
 ```js
@@ -37,4 +39,11 @@ through it.
 
 ⚠️ The bridge holds no state. A nonce is single-use only if your session discards it after one exchange.
 
-CC0-1.0. Status: 0.x — `login.333.eco` is not live yet; the API may change before 1.0.
+⚠️ With single sign-on, `auth_time` is the person's FIRST log-in, so a `maxAgeSeconds` here can refuse a normal returning
+user. If you need a recent log-in, send `max_age` in the request, so login asks them again.
+
+⚠️ `hb_passkey` says how THIS log-in happened. A person can link email, phone and passkeys into one account, so the same
+uid can arrive with `hb_passkey` true or false. Check it on each token, never store it on the user. If someone joins two
+accounts, the joined account's uid stops arriving and they reach you under the other one.
+
+CC0-1.0. Status: 0.x, live at `login.333.eco`; the API may change before 1.0.

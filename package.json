@@ -1,6 +1,6 @@
 {
     "name": "@333eco/firebase-bridge",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Accept \"Log in with HeartBank\" in a Firebase app: verify a login.333.eco ID token and mint YOUR project's Firebase custom token, with how the person logged in (passkey, email or SMS code) copied into claims your rules can require. ES256 only; refuses wrong-app, wrong-issuer, expired, replayed and forged tokens. CC0.",
     "license": "CC0-1.0",
     "author": "Thon Ly",
