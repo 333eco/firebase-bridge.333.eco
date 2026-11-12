@@ -46,4 +46,4 @@ user. If you need a recent log-in, send `max_age` in the request, so login asks 
 uid can arrive with `hb_passkey` true or false. Check it on each token, never store it on the user. If someone joins two
 accounts, the joined account's uid stops arriving and they reach you under the other one.
 
-CC0-1.0. Status: 0.x, live at `login.333.eco`; the API may change before 1.0.
+`CC0-1.0 OR Apache-2.0`, your choice (see `LICENSE`). Status: 0.x, live at `login.333.eco`; the API may change before 1.0.
